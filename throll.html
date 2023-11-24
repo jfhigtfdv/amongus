@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fun Page</title>
+    <style>
+        body {
+            text-align: center;
+            margin-top: 100px;
+            font-family: 'Arial', sans-serif;
+        }
+
+        #response {
+            display: none;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        #meme-img {
+            display: none;
+            margin-top: 20px;
+            max-width: 100%;
+            height: auto;
+        }
+
+        #message {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .button-container {
+            margin-top: 20px;
+        }
+
+        button {
+            font-size: 18px;
+            padding: 10px 20px;
+            margin: 5px;
+        }
+
+        #meme-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Can I be your honeypiesugarplum?</h1>
+    <div class="button-container">
+        <button onclick="checkResponse()">Yes</button>
+        <button onclick="moveButton()">No</button>
+    </div>
+
+    <div id="response">
+        <p id="message"></p>
+        <div id="meme-container">
+            <img id="meme-img" src="meme.jpg" alt="Excited Meme">
+        </div>
+        <audio id="excited-music" controls>
+            <source src="audio.mp3" type="audio/mp3">
+            Your browser does not support the audio tag.
+        </audio>
+    </div>
+
+    <script>
+        function checkResponse() {
+            document.getElementById('response').style.display = 'block';
+            document.getElementById('message').innerText = 'Sabi mo YES, wala ng bawian yan, akin ka na honeysugarplumpapiyampiyam ko!';
+            document.getElementById('meme-img').style.display = 'block';
+            document.getElementById('excited-music').play();
+            document.querySelector('.button-container').style.display = 'none';
+        }
+
+        function moveButton() {
+            const buttons = document.querySelectorAll('button');
+            const noButton = buttons[1];
+            const randomX = Math.floor(Math.random() * window.innerWidth);
+            const randomY = Math.floor(Math.random() * window.innerHeight);
+
+            noButton.style.position = 'absolute';
+            noButton.style.left = randomX + 'px';
+            noButton.style.top = randomY + 'px';
+        }
+    </script>
+</body>
+</html>
